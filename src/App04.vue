@@ -14,14 +14,14 @@
         },
         computed: {
             filteredCars() {
-                return Json.filter(car => car.car_year === this.year);
-            },
+                return Json.filter((car) => car.car_year === this.year);
+            }
         },
         watch: {
-            year(newYear) {
-                console.log("Year changed to:", newYear); // Debug to see if changes are detected
+            year(newVal) {
+                this.year = parseInt(newVal)
             }
-        }
+        },
     }
 </script>
 
@@ -29,7 +29,7 @@
     <h1>{{ title }}</h1>
 
     <div class="wrapper">
-        <input type="range" min="1900" max="2100" v-model="year">
+        <input type="range" min="1900" max="2020" v-model="year">
 
         {{ year }}
 
